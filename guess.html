@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<title>CIS-375 Programming for the Internet Environment I.</title>	
+<meta name="description" content="The Department of Computer Information Systems
+at Buffalo State College provides a four year undergraduate degree program
+in information technology, systems administration, network administration,
+internet programming, database programming, and project management." />
+<meta name="keywords" content="buffalo state college, computer information
+systems, cis, buffalo, undergraduate, IT, college, SUNY, State University of
+New York, Buff state, information technology, 375, CIS-375, CIS375, internet
+programming, xhtml, css, javascript, dom" />
+
+
+<link href="../Style/style.css" rel="stylesheet" type="text/css"/>
+<link href="../Style/cis.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript">
+// declare any global variables here
+	
+	
+	var randNumber;
+	var count = 4;
+	
+	function newgame(){
+		 
+		randNumber  = Math.floor( 1 + Math.random() * 20 );
+		randNumber = parseInt.number;
+		//generate your random number in this function
+	    //initialize or reinitialize game play here as well
+		restart()
+	}//endnewgame
+	
+	function guess(){
+		 if (count > 0){
+		var n = document.getElementById("guessbox").value;
+		count--;
+		
+		document.getElementById( "trysleft" ).innerHTML = "Remaining Tries: " + count;
+		//processing here
+		if (n == randNumber)
+		{
+			document.getElementById("gamestatus").innerHTML = "You win!";
+			document.getElementById("highlowwin").innerHTML = "Guess Status: Win";
+		}
+		
+		 if (n < randNumber)
+		{
+			document.getElementById("highlowwin").innerHTML = "Guess Status: Low";
+			document.getElementById("gamestatus").innerHTML = "Keep Trying!";
+		}
+		
+		 if (n > randNumber)
+		{
+			document.getElementById("highlowwin").innerHTML = "Guess Status: High";
+			document.getElementById("gamestatus").innerHTML = "Keep Trying!";
+		}
+		 if (count == 0 && n != randNumber)
+		{
+			document.getElementById("gamestatus").innerHTML = "You lost, the number was " + randNumber;
+		}
+	
+		 }
+	}//endguess
+   function restart(){
+	//create other functions if needed here
+	randNumber= Math.floor( 1 + Math.random() * 20 );
+	count = 4;
+	document.getElementById( "trysleft" ).innerHTML ="Remaining Tries: 4";
+	document.getElementById( "gamestatus" ).innerHTML ="Guess a numba sucka!";
+	document.getElementById( "highlowwin" ).innerHTML ="Guess Status: High or Low or Win";
+	document.getElementById("guessbox").value = "";
+   }
+
+</script>
+</head>
+<body>
+<div id="wrap">
+
+<div id="header">
+<h1><a href="#">Guessing Game</a></h1>
+<p>&nbsp;</p>
+<h2>Computer Information Systems</h2>
+</div>
+
+<div id="content">
+
+<div id="right">
+
+<h3>Directions:</h3>
+<p class="guessbox">Guess a number between 1 and 20 and enter it into the guess box below. Press the &quot;try&quot; button to see if your guess is correct. You have 4 tries to get it right. <br /><br />
+Click the New Game button to begin a new game.
+</p>
+
+<form class="guessbox">
+<input type="button" value="New Game" onclick="newgame()" />
+</form>
+
+<hr />
+<form class="liststyle" id="form1" style="padding:0em 1em 1em;">
+<table>
+	<tr><td>Your Guess:</td><td><input type="text" id="guessbox" size="5" maxlength="2"/></td></tr>
+    <tr><td colspan="2" align="left"><input type="button" value="click to try" onclick="guess()" /></td></tr>
+    
+</table>
+</form>
+
+<ul class="liststyle">
+    <li id="highlowwin">Guess Status: High or Low or Win</li>
+    <li id="trysleft">Remaining Tries: 4</li>
+  
+</ul>
+
+
+
+<blockquote class="guessbox">
+  <p style="text-align:center"  id="gamestatus" >Keep Trying! You win!! You lost, the number was #.</p>
+</blockquote>
+
+</div>
+
+<div id="left"> 
+
+<h3>Home</h3>
+<ul>
+<li><a href="index.html">Games Home</a></li>
+<li><a href="hiding.html">Hiding Game</a></li>
+</ul>
+
+<h3>Links</h3>
+<ul>
+<li><a href="http://www.w3schools.com/JS/default.asp">w3school.com</a></li> 
+<li><a href="https://developer.mozilla.org/en/Web_Development">Web Development</a></li>
+<li><a href="http://developer.apple.com/Internet/Webcontent">Web Content Articles</a></li>
+<li><a href="http://msdn.microsoft.com/en-us/library/hbxc2t98%28VS.85%29.aspx">JScript</a></li>
+</ul>
+
+</div>
+
+<div style="clear:both;"> </div>
+
+</div>
+
+<div id="footer">
+&copy; Copyright by <a href="#">Charles Mancuso</a> | Design by <a href="http://www.holiday-decorating-ideas.com">Holiday decoration</a>
+</div>
+
+<div id="bottom"> </div>
+
+</div>
+</body>
+</html>
